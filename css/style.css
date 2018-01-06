@@ -1,0 +1,54 @@
+
+h1{
+  font-size: 30px;
+  color: #fff;
+  text-transform: uppercase;
+  font-weight: 300;
+  text-align: center;
+  margin-bottom: 15px;
+}
+.table-wrapper-2 {
+    display: block;
+    max-height: 500px;
+    overflow-y: auto;
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+}
+ th{
+  color: white;
+  font-size: 16px !important;
+  font-weight: bold !important;
+ }
+ td{
+  color: white;
+  font-size: 14px !important;
+ }
+/* demo styles */
+
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,500,300,700);
+
+
+
+
+body {
+     margin: 2%;
+     background: url('../images/algeria_2560x1440.jpg');
+     background-repeat:no-repeat;
+     font: 13px/18px "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.inpink{
+  color: #ff0065 !important;
+}
+.grey-tooltip + .tooltip > .tooltip-inner {background-color: #696969 ;}
+.ab_team{
+  background-color: #696969;
+  display: table-cell;
+  border: 1px solid white;
+  text-align: center;
+  font-family: "Courgette", Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  height: 60px;
+  color: white;
+  margin: 10px;
+  padding: 20px;
+}

@@ -1,0 +1,76 @@
+<div class="row" ng-controller="AllMatches as matchCtrl">
+  <div class="col-md-12">
+    <div class="alert alert-danger" ng-show="matchCtrl.error">
+      <strong>Error!</strong> {{matchCtrl.error}}
+    </div>
+    <section ng-init = "matchCtrl.getAllTheMacthes()">
+      <div class="card">
+        <h1>List Of All The Matches</h1>
+        <a title="click to see the statistics" class="grey-tooltip" data-toggle="tooltip" data-placement="bottom" tooltip href="#!/teamlist"><button type="button" class="btn btn-outline-warning waves-effect btn-lg">See statistics</button></a>
+        <div class="card-body">
+          <div class="table-wrapper-2">
+            <div class="row" style="background-color: #333; padding: 20px;">
+              <div class="col-lg-3 col-md-6">
+                <form class="form-inline mt-2 ml-2">
+                  <input ng-model="matchFilter.name" class="form-control my-0 py-0" type="text" placeholder="filter by match" style="max-width: 200px; color:white;">
+                </form>
+              </div>
+              <div class="col-lg-3 col-md-6">
+                <form class="form-inline mt-2 ml-2">
+                  <input ng-model="singleMatchFilter.date" class="form-control my-0 py-0" type="text" placeholder="filter by date" style="max-width: 200px; color:white;">
+                </form>
+              </div>
+              <div class="col-lg-3 col-md-6">
+                <form class="form-inline mt-2 ml-2">
+                  <input ng-model="singleMatchFilter.team1.name" class="form-control my-0 py-0" type="text" placeholder="filter by team one" style="max-width: 200px; color:white;">
+                </form>
+              </div>
+              <div class="col-lg-3 col-md-6">
+                <form class="form-inline mt-2 ml-2">
+                  <input ng-model="singleMatchFilter.team2.name" class="form-control my-0 py-0" type="text" placeholder="filter by team two" style="max-width: 200px; color:white;">
+                </form>
+              </div>
+              <div class="col-lg-3 col-md-6">
+                <form class="form-inline mt-2 ml-2">
+                  <input ng-model="singleMatchFilter.score1" class="form-control my-0 py-0" type="text" placeholder="filter by team one score" style="max-width: 200px; color:white;">
+                </form>
+              </div>
+              <div class="col-lg-3 col-md-6">
+                <form class="form-inline mt-2 ml-2">
+                  <input ng-model="singleMatchFilter.score2" class="form-control my-0 py-0" type="text" placeholder="filter by team two score" style="max-width: 200px; color:white;">
+                </form>
+              </div>
+              <!--Grid column-->
+            </div>    
+            <table class="table table-responsive table-hover table-bordered text-center">
+              <thead class="mdb-color darken-4">
+                <tr class="text-white">
+                  <th class="th-lg">Match Rounds</th>
+                  <th class="th-lg">Match Date</th>
+                  <th class="th-lg">Team One</th>
+                  <th class="th-lg">Team Two </th>
+                  <th class="th-lg">Team one score </th>
+                  <th class="th-lg">Team Two score </th>
+                  <th class="th-lg">View Details</th>
+                </tr>
+              </thead>
+              <tbody ng-repeat="single in matchCtrl.allMatches | filter:matchFilter">
+                <!-- ITERATING-THROUGH-MATCHES-->
+                <tr class="text-white" ng-repeat="match in single.matches |filter:singleMatchFilter">
+                  <td>{{single.name }}</td>
+                  <td>{{match.date | date:"dd/MM/yyyy"  }}</td>
+                  <td>{{match.team1.name}}</td>
+                  <td>{{match.team2.name}}</td>
+                  <td>{{match.score1}}</td>
+                  <td>{{match.score2}}</td>
+                  <td><a title="click to see the details" class="grey-tooltip" data-toggle="tooltip" data-placement="top" tooltip href="#!/details/{{matchCtrl.allMatches.indexOf(single)}}/{{single.matches.indexOf(match)}}"><i class="fa fa-eye fa-2x " aria-hidden="true"></i></a></td>
+                </tr>
+                <!-- END-OF-ITERATING-THROUGH-MATCHES-->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div> 
+</div>

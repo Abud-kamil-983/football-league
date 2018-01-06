@@ -1,0 +1,49 @@
+
+<div class="row" ng-controller="StatsController as statsCtrl">
+  <div class="col-md-12">
+    <div class="alert alert-danger" ng-show="statsCtrl.error">
+      <strong>Error!</strong> {{statsCtrl.error}}
+    </div>
+    <h1 class="cushead">Statistics  Of {{statsCtrl.teamName}} In Year 2015-2016 And 2016-2017</h1>
+
+    <section ng-init = "statsCtrl.getTeamStats()">
+
+      <div class="card">
+
+        <div class="card-body">
+          <div class="table-wrapper-2">
+            <table class="table table-responsive">
+              <tbody>
+                <!-- ITERATING-THROUGH-MATCHES-->
+                <tr>
+                  <td>Total Match Played</td>
+                  <td>{{statsCtrl.totalMatchesPlayed}}</td>
+                </tr>
+                <tr>
+                  <td>Total Wins</td>
+                  <td>{{statsCtrl.totalWins}}</td>
+                </tr>
+                <tr>
+                  <td>Total Loses</td>
+                  <td>{{statsCtrl.totalLoss}}</td>
+                </tr>
+                <tr>
+                  <td>Total Ties</td>
+                  <td>{{statsCtrl.totalTie}}</td>
+                </tr>
+                <tr>
+                  <td>Total Goals</td>
+                  <td>{{statsCtrl.totalGoalsScored}}</td>
+                </tr>
+                <tr>
+                  <!-- END-OF-ITERATING-THROUGH-MATCHES-->
+                </tbody>
+              </table>
+              <h1 style="text-align: center; font-family: 'Courgette', cursive;">{{"Percentage Winings: " + statsCtrl.totalWins/statsCtrl.totalMatchesPlayed * 100}}</h1>
+            </div>
+          </div>
+        </div>
+
+      </section>
+    </div>
+  </div>

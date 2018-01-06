@@ -1,0 +1,51 @@
+<div class="row" ng-controller="DetailsController as detailsCtrl">
+  <div class="col-md-12">
+    <div class="alert alert-danger" ng-show="detailsCtrl.error">
+      <strong>Error!</strong> {{detailsCtrl.error}}
+    </div>
+    <section ng-init = "detailsCtrl.getSingleMatch()">
+
+      <h1>Details Of {{detailsCtrl.singleMatch[detailsCtrl.roundId].name}}</h1>
+
+      <div style="text-align: center; margin: 0 auto;">
+        <div class="card">
+
+          <div class="card-body">
+            <div class="table-wrapper-2">
+              <table  class="table table-responsive">
+                <tbody >
+                  <!-- ITERATING-THROUGH-MATCHES-->
+                  <tr>
+                    <td>Match</td>
+                    <td>{{detailsCtrl.singleMatch[detailsCtrl.roundId].name}}</td>
+                  </tr><tr>
+                    <td>Date</td>
+                    <td>{{detailsCtrl.singleMatch[detailsCtrl.roundId].matches[detailsCtrl.matchId].date | date}}</td>
+                  </tr><tr>
+                    <td>Team one</td>
+                    <td>{{detailsCtrl.singleMatch[detailsCtrl.roundId].matches[detailsCtrl.matchId].team1.name + '(' +detailsCtrl.singleMatch[detailsCtrl.roundId].matches[detailsCtrl.matchId].team1.code+')' }}</td>
+                  </tr><tr>
+                    <td>Team two</td>
+                    <td>{{detailsCtrl.singleMatch[detailsCtrl.roundId].matches[detailsCtrl.matchId].team2.name + '(' +detailsCtrl.singleMatch[detailsCtrl.roundId].matches[detailsCtrl.matchId].team2.code+')'}}</td>
+                  </tr>
+                  <tr>
+                    <td>Score Of Team one</td>
+                    <td>{{detailsCtrl.singleMatch[detailsCtrl.roundId].matches[detailsCtrl.matchId].score1}}</td>
+                  </tr>
+                  <tr>
+                    <td>Score Of Team two</td>
+                    <td>{{detailsCtrl.singleMatch[detailsCtrl.roundId].matches[detailsCtrl.matchId].score2}}</td>
+                  </tr>
+
+                  <!-- END-OF-ITERATING-THROUGH-MATCHES-->
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+        <h1 style="text-align: center; font-family: 'Courgette', cursive;">{{(detailsCtrl.singleMatch[detailsCtrl.roundId].matches[detailsCtrl.matchId].score1 > detailsCtrl.singleMatch[detailsCtrl.roundId].matches[detailsCtrl.matchId].score2) ? "Team one is winner!" : (detailsCtrl.singleMatch[detailsCtrl.roundId].matches[detailsCtrl.matchId].score2 > detailsCtrl.singleMatch[detailsCtrl.roundId].matches[detailsCtrl.matchId].score1) ? "Team two is winner!" : "Match is tied"}}</h1>
+      </div>
+
+    </section>
+  </div>
+</div>

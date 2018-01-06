@@ -1,0 +1,33 @@
+
+<div ng-controller="ListController as list">
+	<div class="alert alert-danger" ng-show="list.error">
+		<strong>Error!</strong> {{list.error}}
+	</div>
+	<div  ng-init="list.getTeamList()">
+		<div class="card">
+
+			<div class="card-body">
+				<div class="table-wrapper-2">
+					<table class="table table-responsive">
+						<thead class="mdb-color darken-4">
+							<tr class="text-white">
+								<th class="th-lg">SL.</th>
+								<th class="th-lg">Team</th>
+								<th class="th-lg">View Details</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr class="text-white" ng-repeat="team in list.uniqueTeam">
+								<td>{{list.uniqueTeam.indexOf(team)+1}}</td>
+								<td>{{team}}</td>
+								<td><a title="click to see the statistics" class="grey-tooltip" data-toggle="tooltip" data-placement="top" tooltip href="#!/teamstats/{{team}}""><i class="fa fa-eye fa-2x " aria-hidden="true"></i></a></td>
+							</tr>
+							<!-- END-OF-ITERATING-THROUGH-MATCHES-->
+						</tbody>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>
+</div>
